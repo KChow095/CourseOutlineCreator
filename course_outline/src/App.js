@@ -1,15 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-import courseInfromation from './components/courseInformation';
-import gradeDetermination from './components/gradeDetermination';
-import learningObjectives from './components/learningObjectives';
+import classNames from "classnames";
+import "bulma/css/bulma.css";
+import { makeStyles } from "@material-ui/core/styles";
+import { useEffect, useState } from 'react';
+import GradeDetermination from './components/GradeDetermination.js';
+import LearningObjectives from './components/LearningObjectives.js';
+import CourseInformation from './components/CourseInformation.js';
+import CourseName from './components/CourseName.js';
 
 function App() {
   return (
-    <div className="App">
-     <courseInfromation />
-     <learningObjectives />
-     <gradeDetermination />
+    <div className = "container">
+      <div className="App"> 
+      <header className = "title">
+        <h1 className = "title is-1">Course Outline Creator</h1>
+        <p className="subtitle is-4">Create course outlines fast</p>
+      </header>
+        <CourseName />
+        <CourseInformation/>
+      </div>
     </div>
   );
 }
