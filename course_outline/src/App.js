@@ -7,17 +7,30 @@ import GradeDetermination from './components/GradeDetermination.js';
 import LearningObjectives from './components/LearningObjectives.js';
 import CourseInformation from './components/CourseInformation.js';
 import CourseName from './components/CourseName.js';
+import Heading from './components/Heading.js';
+import Footing from './components/Footing.js';
 
 function App() {
   return (
     <div className = "container">
       <div className="App"> 
-      <header className = "title">
-        <h1 className = "title is-1">Course Outline Creator</h1>
-        <p className="subtitle is-4">Create course outlines fast</p>
-      </header>
-        <CourseName />
-        <CourseInformation/>
+        <Heading />
+        <section className ="section">
+          <CourseName />
+        </section>
+        <div className="is-divider"></div>
+        <section className = "section">
+          <CourseInformation/>
+        </section>
+        <div className="is-divider"></div>
+        <section className = "section">
+          <LearningObjectives />
+        </section>
+        <div className="is-divider"></div>
+        <section className = "section">
+          <GradeDetermination />
+        </section>
+        <Footing />
       </div>
     </div>
   );

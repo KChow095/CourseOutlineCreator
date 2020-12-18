@@ -4,16 +4,28 @@ import "bulma/css/bulma.css";
 function CourseName(){
     return(
         <div clasName = "field">
-            <div class="field">
-                <label class="label ">Instructor</label>
-                <div class="control">
-                    <input class="input is-primary" type="text" placeholder="Instructor Full Name" />
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Course Instructor</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <input className="input is-dark" type="text" placeholder="eg. Mohammad Moshirpour"/>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="field">
-                <label class="label">Course Name</label>
-                <div class="control">
-                    <input class="input is-primary" type="text" placeholder="Course Name" />
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Course Name</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <input className="input is-dark" type="text" placeholder="eg. ENSF 409 Principles of Software Development"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
