@@ -9,7 +9,14 @@ function GradeDetermination(){
     ]);
 
     const handleChangeInput = (id, event) => {
-        console.log(id, event.target.name);
+        const newInputFields = inputFields.map(i => {
+          if(id === i.id) {
+            i[event.target.name] = event.target.value;
+            console.log(i);
+          }
+          return i;
+        })
+        setInputFields(newInputFields);
     }
 
     const handleChangeWeight = (id, event)=>{
@@ -32,7 +39,7 @@ function GradeDetermination(){
     }
 
     return(
-        <div clasName = "field">
+        <div className = "field">
            <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">Grade Determination</label>
@@ -42,16 +49,16 @@ function GradeDetermination(){
                         <div className="control">
                             <div className="columns">
                                 <div className = "column is-two-fifths">
-                                    <label class="label">Item</label>
+                                    <label className="label">Item</label>
                                 </div>
                                 <div className = "column is-one-fifth">
-                                    <label class="label">Components Evaluated</label>
+                                    <label className="label">Components Evaluated</label>
                                 </div>
                                 <div className = "column is-one-fifth">
-                                    <label class="label">Weight</label>
+                                    <label className="label">Weight</label>
                                 </div>
                             </div>
-                            {inputFields.map((inputField, index)=> (
+                            {inputFields.map(inputField=> (
                                     <div key = {inputField.id}>
                                         <div className="columns">
                                         <div className = "column is-two-fifths">
@@ -86,12 +93,12 @@ function GradeDetermination(){
                                         </div>
                                         <div className = "column">
                                             <p className = "buttons">
-                                                <button class="button is-warning" onClick ={() =>{
+                                                <button className="button is-warning" onClick ={() =>{
                                                     handleAddFields();
                                                     }}>
                                                     Add
                                                 </button>
-                                                <button class="button is-danger" 
+                                                <button className="button is-danger" 
                                                 disabled = {inputFields.length===1}
                                                 onClick = {() =>{
                                                     handleDeleteFields(inputField.id);

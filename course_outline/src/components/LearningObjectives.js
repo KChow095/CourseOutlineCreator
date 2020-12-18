@@ -41,7 +41,7 @@ function LearningObjectives(){
     }
 
     return(
-        <div clasName = "field">
+        <div className = "field">
            <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">Learning Outcomes</label>
@@ -51,10 +51,10 @@ function LearningObjectives(){
                         <div className="control">
                         <div className="columns">
                                 <div className = "column is-one-fifth">
-                                    <label class="label">Component Number</label>
+                                    <label className="label">Component Number</label>
                                 </div>
                                 <div className = "column is-half">
-                                    <label class="label">Component Description</label>
+                                    <label className="label">Component Description</label>
                                 </div>
                             </div>
                             {inputFields.map((inputField, index)=> (
@@ -82,12 +82,12 @@ function LearningObjectives(){
                                         </div>
                                         <div className = "column">
                                             <p className = "buttons">
-                                                <button class="button is-warning" onClick ={() =>{
+                                                <button className="button is-warning" onClick ={() =>{
                                                     handleAddFields();
                                                     }}>
                                                     Add
                                                 </button>
-                                                <button class="button is-danger" 
+                                                <button className="button is-danger" 
                                                 disabled = {inputFields.length===1}
                                                 onClick = {() =>{
                                                     handleDeleteFields(inputField.id);

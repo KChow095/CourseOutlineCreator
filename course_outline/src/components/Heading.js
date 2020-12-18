@@ -3,15 +3,15 @@ import "bulma/css/bulma.css";
 
 function Heading(){
     return(
-        <section class="hero is-warning is-medium is-bold">
-        <div class="hero-head">
-          <nav class="navbar">
-            <div class="container">
-              <div class="navbar-brand">
-                <a class="navbar-item">
+        <section className="hero is-warning is-medium is-bold">
+        <div className="hero-head">
+          <nav className="navbar">
+            <div className="container">
+              <div className="navbar-brand">
+                <a className="navbar-item">
                   <img src="/UCLogo.png" alt="Logo"/>
                 </a>
-                <span class="navbar-burger" data-target="navbarMenuHeroA">
+                <span className="navbar-burger" data-target="navbarMenuHeroA">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -21,12 +21,12 @@ function Heading(){
           </nav>
         </div>
       
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <h1 class="title">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <h1 className="title">
                 Course Outline Creator
             </h1>
-            <h2 class="subtitle">
+            <h2 className="subtitle">
                 Create course outlines fast
             </h2>
           </div>

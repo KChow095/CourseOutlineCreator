@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "bulma/css/bulma.css";
 
 function CourseName(){
+    const[instructor,setInstructor] = useState("");
+    const[courseName,setCourseName] = useState("");
+
     return(
-        <div clasName = "field">
+        <div className = "field">
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">Course Instructor</label>
@@ -11,7 +14,12 @@ function CourseName(){
                 <div className="field-body">
                     <div className="field">
                         <div className="control">
-                            <input className="input is-dark" type="text" placeholder="eg. Mohammad Moshirpour"/>
+                            <input className="input is-dark" 
+                            type="text" 
+                            placeholder="eg. Mohammad Moshirpour"
+                            value = {instructor}
+                            onChange = {(event) =>setInstructor(event.target.value)}
+                            />
                         </div>
                     </div>
                 </div>
@@ -23,7 +31,12 @@ function CourseName(){
                 <div className="field-body">
                     <div className="field">
                         <div className="control">
-                            <input className="input is-dark" type="text" placeholder="eg. ENSF 409 Principles of Software Development"/>
+                            <input className="input is-dark" 
+                            type="text" 
+                            placeholder="eg. ENSF 409 Principles of Software Development"
+                            value = {courseName}
+                            onChange = {(event) =>setCourseName(event.target.value)}
+                            />
                         </div>
                     </div>
                 </div>

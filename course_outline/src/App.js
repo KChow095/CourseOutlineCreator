@@ -8,6 +8,7 @@ import LearningObjectives from './components/LearningObjectives.js';
 import CourseInformation from './components/CourseInformation.js';
 import CourseName from './components/CourseName.js';
 import Heading from './components/Heading.js';
+import SubmitClear from './components/SubmitClear.js';
 import Footing from './components/Footing.js';
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
         <div className="is-divider"></div>
         <section className = "section">
           <GradeDetermination />
+        </section>
+        <section className = "section">
+          <SubmitClear />
         </section>
         <Footing />
       </div>
