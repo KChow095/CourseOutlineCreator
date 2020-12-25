@@ -1,11 +1,28 @@
-import React, { useState }from 'react';
+import React, { useReducer, useState }from 'react';
 import "bulma/css/bulma.css";
 import { v4 as uuidv4 } from 'uuid';
 
 function GradeDetermination(){
+    const totalPercent = ({totPercent})=> {
+        return(
+          <div className = "column is-one-fifth">    
+              <h1 className = "title">{totPercent}</h1>
+          </div>
+        );
+    }
+
+    const myReducer = (state, action)=>{
+        if(isNaN(action.value)) return 0;
+        return action.value>100?100:action.value<0?0:action.value;
+    }
+
+    const[percent, updatePercent]=useReducer(myReducer, 0);
 
     const[inputFields, setInputFields] = useState([
-        {id: uuidv4(), weight: '' , item:'', outcomes:''},
+        {id: uuidv4(), 
+            weight: '' , 
+            item:'', 
+            outcomes:''},
     ]);
 
     const handleChangeInput = (id, event) => {
@@ -16,6 +33,7 @@ function GradeDetermination(){
           }
           return i;
         })
+        console.log([...newInputFields]);
         setInputFields(newInputFields);
     }
 
@@ -26,6 +44,7 @@ function GradeDetermination(){
             }
             return i;
         })
+        updatePercent({value: percent + parseInt(event.target.value)})
         setInputFields(newInputFields);
     }
     const handleAddFields=()=>{
@@ -34,6 +53,7 @@ function GradeDetermination(){
     
     const handleDeleteFields =(id)=>{
         const values  = [...inputFields];
+        
         values.splice(values.findIndex(value => value.id === id), 1);
         setInputFields(values);
     }
@@ -110,6 +130,11 @@ function GradeDetermination(){
                                     </div>
                                 </div>
                             ))}
+                            <div className="columns">
+                                <div className = "column is-two-fifths"></div>
+                                <div className = "column is-one-fifth"></div>
+                                    <totalPercent totPercent = {percent}/>
+                            </div>
                         </div>
                     </div>
                 </div>

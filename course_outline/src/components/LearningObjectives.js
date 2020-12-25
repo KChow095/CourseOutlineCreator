@@ -7,7 +7,9 @@ function LearningObjectives(){
     const[objectiveNumber, setObjectiveNumeber] = useState(2)
 
     const[inputFields, setInputFields] = useState([
-        {id: uuidv4(), learnNum: 1 , learnDesc:''},
+        {id: uuidv4(), 
+            learnNum: 1 , 
+            learnDesc:''},
     ]);
 
     const handleChangeNum = (id, event)=>{
