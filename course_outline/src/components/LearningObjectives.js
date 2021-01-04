@@ -65,7 +65,7 @@ function LearningObjectives(){
                                         <div className = "column is-one-fifth">
                                             <input 
                                             className="input is-dark"
-                                            name = "number" 
+                                            name = "learnNum" 
                                             type="text" 
                                             placeholder="Outcome Number" 
                                             value = {inputField.learnNum}
@@ -75,7 +75,7 @@ function LearningObjectives(){
                                         <div className = "column is-three-fifths">
                                             <input 
                                             className="input is-dark"
-                                            name = "description" 
+                                            name = "learnDesc" 
                                             type="text" 
                                             placeholder="Description" 
                                             value = {inputField.learnDesc}

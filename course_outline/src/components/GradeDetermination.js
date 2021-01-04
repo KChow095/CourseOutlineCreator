@@ -1,22 +1,8 @@
-import React, { useReducer, useState }from 'react';
+import React, { useState }from 'react';
 import "bulma/css/bulma.css";
 import { v4 as uuidv4 } from 'uuid';
 
 function GradeDetermination(){
-    const totalPercent = ({totPercent})=> {
-        return(
-          <div className = "column is-one-fifth">    
-              <h1 className = "title">{totPercent}</h1>
-          </div>
-        );
-    }
-
-    const myReducer = (state, action)=>{
-        if(isNaN(action.value)) return 0;
-        return action.value>100?100:action.value<0?0:action.value;
-    }
-
-    const[percent, updatePercent]=useReducer(myReducer, 0);
 
     const[inputFields, setInputFields] = useState([
         {id: uuidv4(), 
@@ -29,22 +15,20 @@ function GradeDetermination(){
         const newInputFields = inputFields.map(i => {
           if(id === i.id) {
             i[event.target.name] = event.target.value;
-            console.log(i);
           }
           return i;
         })
-        console.log([...newInputFields]);
         setInputFields(newInputFields);
     }
 
     const handleChangeWeight = (id, event)=>{
         const newInputFields = inputFields.map(i => {
             if(id === i.id) {
-              i[event.target.name] = event.target.value;
+                console.log(event.target.name)
+              i['weight'] = event.target.value;
             }
             return i;
         })
-        updatePercent({value: percent + parseInt(event.target.value)})
         setInputFields(newInputFields);
     }
     const handleAddFields=()=>{
@@ -84,7 +68,7 @@ function GradeDetermination(){
                                         <div className = "column is-two-fifths">
                                             <input 
                                             className="input is-dark"
-                                            name = "description" 
+                                            name = "item" 
                                             type="text" 
                                             placeholder="eg. Assignments" 
                                             value = {inputField.item}
@@ -94,7 +78,7 @@ function GradeDetermination(){
                                         <div className = "column is-one-fifth">
                                             <input 
                                             className="input is-dark"
-                                            name = "components" 
+                                            name = "outcomes" 
                                             type="text" 
                                             placeholder="eg. 1-3" 
                                             value = {inputField.outcomes}
@@ -104,7 +88,7 @@ function GradeDetermination(){
                                         <div className = "column is-one-fifth">
                                             <input 
                                             className="input is-dark"
-                                            name = "weighting" 
+                                            name = "weight" 
                                             type="text" 
                                             placeholder="eg. 10%" 
                                             value = {inputField.weight}
@@ -130,11 +114,13 @@ function GradeDetermination(){
                                     </div>
                                 </div>
                             ))}
+                            {/*
                             <div className="columns">
                                 <div className = "column is-two-fifths"></div>
                                 <div className = "column is-one-fifth"></div>
                                     <totalPercent totPercent = {percent}/>
                             </div>
+                            */}
                         </div>
                     </div>
                 </div>
