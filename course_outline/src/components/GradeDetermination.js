@@ -11,6 +11,9 @@ function GradeDetermination(){
             outcomes:''},
     ]);
 
+    let timeout = null;
+    const[totalPercent, setTotalPercent ] = useState(0);
+
     const handleChangeInput = (id, event) => {
         const newInputFields = inputFields.map(i => {
           if(id === i.id) {
@@ -24,12 +27,17 @@ function GradeDetermination(){
     const handleChangeWeight = (id, event)=>{
         const newInputFields = inputFields.map(i => {
             if(id === i.id) {
-                console.log(event.target.name)
               i['weight'] = event.target.value;
             }
             return i;
         })
+        clearTimeout(timeout)
+        timeout = setTimeout(changePercent(parseInt(event.target.value)),1000);
         setInputFields(newInputFields);
+    }
+
+    const changePercent = (percent) =>{
+        setTotalPercent(totalPercent+percent);
     }
     const handleAddFields=()=>{
         setInputFields([...inputFields,{id: uuidv4(), weight:'',item:'',outcomes:''}]);
@@ -37,8 +45,10 @@ function GradeDetermination(){
     
     const handleDeleteFields =(id)=>{
         const values  = [...inputFields];
-        
-        values.splice(values.findIndex(value => value.id === id), 1);
+        const deletedIndex = values.findIndex(value => value.id === id);
+        const deletedWeight = values[deletedIndex].weight;
+        values.splice(deletedIndex, 1);
+        changePercent(-parseInt(deletedWeight));
         setInputFields(values);
     }
 
@@ -114,13 +124,11 @@ function GradeDetermination(){
                                     </div>
                                 </div>
                             ))}
-                            {/*
                             <div className="columns">
                                 <div className = "column is-two-fifths"></div>
                                 <div className = "column is-one-fifth"></div>
-                                    <totalPercent totPercent = {percent}/>
+                                    <h1 className = "title">{totalPercent}</h1>
                             </div>
-                            */}
                         </div>
                     </div>
                 </div>
