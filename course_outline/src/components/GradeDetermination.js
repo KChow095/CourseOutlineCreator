@@ -30,13 +30,17 @@ function GradeDetermination(){
             }
             return i;
         })
-        setTimeout(()=>changePercent(parseInt(event.target.value)),500);
+        setTimeout(()=>changePercent(parseInt(event.target.value)),750);
         setInputFields(newInputFields);
     }
 
     const changePercent = (percent) =>{
-        let totPercent = isNaN(percent)?0:percent;
-        setTotalPercent(totalPercent+totPercent);
+        let newPercent = isNaN(percent)?0:percent;
+        let totPercent = totalPercent + newPercent;
+        if(totPercent > 100){
+            alert("Please ensure total weight adds to 100%")
+        }
+        setTotalPercent(totPercent);
     }
     const handleAddFields=()=>{
         setInputFields([...inputFields,{id: uuidv4(), weight:'',item:'',outcomes:''}]);
