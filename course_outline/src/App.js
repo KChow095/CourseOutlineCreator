@@ -1,10 +1,8 @@
 import './App.css';
-import classNames from "classnames";
 import "bulma/css/bulma.css";
-import { makeStyles } from "@material-ui/core/styles";
-import { useEffect, useState } from 'react';
 import GradeDetermination from './components/GradeDetermination.js';
 import LearningObjectives from './components/LearningObjectives.js';
+import LetterDetermination from './components/LetterDetermination.js';
 import CourseInformation from './components/CourseInformation.js';
 import CourseName from './components/CourseName.js';
 import Heading from './components/Heading.js';
@@ -30,6 +28,10 @@ function App() {
         <div className="is-divider"></div>
         <section className = "section">
           <GradeDetermination />
+        </section>
+        <div className="is-divider"></div>
+        <section className = "section">
+          <LetterDetermination/>
         </section>
         <section className = "section">
           <SubmitClear />
