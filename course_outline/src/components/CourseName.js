@@ -4,6 +4,7 @@ import "bulma/css/bulma.css";
 function CourseName(){
     const[instructor,setInstructor] = useState("");
     const[courseName,setCourseName] = useState("");
+    const[version,setVersion] = useState("");
 
     return(
         <div className = "field">
@@ -36,6 +37,23 @@ function CourseName(){
                             placeholder="eg. ENSF 409 Principles of Software Development"
                             value = {courseName}
                             onChange = {(event) =>setCourseName(event.target.value)}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Outline Version Number</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <input className="input is-dark" 
+                            type="text" 
+                            placeholder="eg. 1.2"
+                            value = {version}
+                            onChange = {(event) =>setVersion(event.target.value)}
                             />
                         </div>
                     </div>
