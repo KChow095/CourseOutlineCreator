@@ -11,7 +11,6 @@ function GradeDetermination(){
             outcomes:''},
     ]);
 
-    let timeout = null;
     const[totalPercent, setTotalPercent ] = useState(0);
 
     const handleChangeInput = (id, event) => {
@@ -31,13 +30,13 @@ function GradeDetermination(){
             }
             return i;
         })
-        clearTimeout(timeout)
-        timeout = setTimeout(changePercent(parseInt(event.target.value)),1000);
+        setTimeout(()=>changePercent(parseInt(event.target.value)),500);
         setInputFields(newInputFields);
     }
 
     const changePercent = (percent) =>{
-        setTotalPercent(totalPercent+percent);
+        let totPercent = isNaN(percent)?0:percent;
+        setTotalPercent(totalPercent+totPercent);
     }
     const handleAddFields=()=>{
         setInputFields([...inputFields,{id: uuidv4(), weight:'',item:'',outcomes:''}]);
@@ -69,7 +68,7 @@ function GradeDetermination(){
                                     <label className="label">Components Evaluated</label>
                                 </div>
                                 <div className = "column is-one-fifth">
-                                    <label className="label">Weight</label>
+                                    <label className="label">Weight (%)</label>
                                 </div>
                             </div>
                             {inputFields.map(inputField=> (
@@ -100,7 +99,7 @@ function GradeDetermination(){
                                             className="input is-dark"
                                             name = "weight" 
                                             type="text" 
-                                            placeholder="eg. 10%" 
+                                            placeholder="eg. 10" 
                                             value = {inputField.weight}
                                             onChange = {(event) =>handleChangeWeight(inputField.id, event)}
                                             />
@@ -125,9 +124,10 @@ function GradeDetermination(){
                                 </div>
                             ))}
                             <div className="columns">
-                                <div className = "column is-two-fifths"></div>
-                                <div className = "column is-one-fifth"></div>
-                                    <h1 className = "title">{totalPercent}</h1>
+                                <div className = "column is-three-fifths"></div>
+                                <div className = "column is-one-fifth">
+                                    <h3 className = "title">Total: {totalPercent}%</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
