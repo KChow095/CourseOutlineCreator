@@ -30,7 +30,7 @@ function GradeDetermination(){
             }
             return i;
         })
-        setTimeout(()=>changePercent(parseInt(event.target.value)),750);
+        setTimeout(()=>changePercent(parseInt(event.target.value)),1000);
         setInputFields(newInputFields);
     }
 
