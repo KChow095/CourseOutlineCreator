@@ -1,16 +1,13 @@
-import React, { useState }from 'react';
+import React, { useState, useContext }from 'react';
 import "bulma/css/bulma.css";
 import { v4 as uuidv4 } from 'uuid';
+import { LearningObjectivesContext } from '../context/LearningObjectivesContext';
 
 function LearningObjectives(){
 
     const[objectiveNumber, setObjectiveNumeber] = useState(2)
 
-    const[inputFields, setInputFields] = useState([
-        {id: uuidv4(), 
-            learnNum: 1 , 
-            learnDesc:''},
-    ]);
+    const[inputFields, setInputFields] = useContext(LearningObjectivesContext);
 
     const handleChangeNum = (id, event)=>{
         const newInputFields = inputFields.map(i => {

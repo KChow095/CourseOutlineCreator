@@ -1,5 +1,12 @@
-import react, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 
-const CourseInformationContext =()=>{
-    
+export const CourseInformationContext = createContext();
+
+export const CourseInformationProvider =(props)=>{
+    const[inputField,setInputField] = useState("");
+    return(
+        <CourseInformationContext.Provider value = {[inputField, setInputField]}>
+            {props.children};
+        </CourseInformationContext.Provider>
+    );
 }

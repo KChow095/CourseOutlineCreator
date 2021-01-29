@@ -1,16 +1,12 @@
-import React, { useState }from 'react';
+import React, { useContext }from 'react';
 import "bulma/css/bulma.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThanEqual } from '@fortawesome/free-solid-svg-icons'
-import { v4 as uuidv4 } from 'uuid';
+import { LetterDeterminationContext } from '../context/LetterDeterminationContext';
+import {v4 as uuidv4} from 'uuid';
 
 function LetterDetermination(){
-    const [letterRanges, setLetterRange] = useState([
-        {id: uuidv4(), 
-            letterGrade: '' , 
-            upperPerc:'', 
-            lowerPerc:''},
-    ])
+    const [letterRanges, setLetterRange] = useContext(LetterDeterminationContext);
 
     const handleChangeEvent =(id, event) =>{
         const newRange = letterRanges.map(i =>{

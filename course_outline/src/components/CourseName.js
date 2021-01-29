@@ -44,7 +44,7 @@ function CourseName(){
             </div>
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
-                    <label className="label">Outline Version Number</label>
+                    <label className="label">Outline Version</label>
                 </div>
                 <div className="field-body">
                     <div className="field">
@@ -59,6 +59,10 @@ function CourseName(){
                     </div>
                 </div>
             </div>
+            <button className = "button is-warning"
+                /*onClick ={}}*/>
+                <span>Retrieve Previous Version</span>
+            </button>
         </div>
         );
 }

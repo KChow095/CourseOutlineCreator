@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import {CourseInformationContext, CourseInformationProvider} from '../context/CourseInformationContext.js'
 import "bulma/css/bulma.css";
 
 function CourseInformation(){
-  const[inputField,setInputField] = useState("");
+  const [inputField,setInputField] = useContext(CourseInformationContext);
 
   return(
       <div className="field">
@@ -38,6 +39,6 @@ function CourseInformation(){
           </div>
         </div>
       </div>
-      );
+  );
 }
 export default CourseInformation;

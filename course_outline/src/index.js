@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {  CourseInformationProvider } from './context/CourseInformationContext.js';
+import { LearningObjectivesProvider } from './context/LearningObjectivesContext';
+import { LetterDeterminationProvider } from './context/LetterDeterminationContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CourseInformationProvider>
+      <LearningObjectivesProvider>
+        <LetterDeterminationProvider>
+          <App />
+        </LetterDeterminationProvider>
+      </LearningObjectivesProvider>
+    </CourseInformationProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
