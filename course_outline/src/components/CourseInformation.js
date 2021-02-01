@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {CourseInformationContext, CourseInformationProvider} from '../context/CourseInformationContext.js'
+import {CourseInformationContext} from '../context/CourseInformationContext.js'
 import "bulma/css/bulma.css";
 
 function CourseInformation(){

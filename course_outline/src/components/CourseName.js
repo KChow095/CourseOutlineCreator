@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "bulma/css/bulma.css";
+import {CourseNameContext} from '../context/CourseNameContext.js';
 
 function CourseName(){
-    const[instructor,setInstructor] = useState("");
-    const[courseName,setCourseName] = useState("");
-    const[version,setVersion] = useState("");
+    const {cInstructor, cName, cVersion} = useContext(CourseNameContext);
+    const[instructor,setInstructor] = cInstructor;
+    const[courseName,setCourseName] = cName;
+    const[version,setVersion] = cVersion;
 
     return(
         <div className = "field">

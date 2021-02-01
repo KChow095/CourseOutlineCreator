@@ -1,15 +1,11 @@
-import React, { useState }from 'react';
+import React, { useState, useContext }from 'react';
 import "bulma/css/bulma.css";
 import { v4 as uuidv4 } from 'uuid';
+import {GradeDeterminationContext} from '../context/GradeDeterminationContext.js';
 
 function GradeDetermination(){
 
-    const[inputFields, setInputFields] = useState([
-        {id: uuidv4(), 
-            weight: '' , 
-            item:'', 
-            outcomes:''},
-    ]);
+    const[inputFields, setInputFields] = useContext(GradeDeterminationContext);
 
     const[totalPercent, setTotalPercent ] = useState(0);
 

@@ -6,13 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import {  CourseInformationProvider } from './context/CourseInformationContext.js';
 import { LearningObjectivesProvider } from './context/LearningObjectivesContext';
 import { LetterDeterminationProvider } from './context/LetterDeterminationContext';
+import { CourseNameProvider } from './context/CourseNameContext.js'
+import { GradeDeterminationProvider } from './context/GradeDeterminationContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <CourseInformationProvider>
       <LearningObjectivesProvider>
         <LetterDeterminationProvider>
-          <App />
+          <CourseNameProvider>
+            <GradeDeterminationProvider>
+              <App />
+            </GradeDeterminationProvider>
+          </CourseNameProvider>
         </LetterDeterminationProvider>
       </LearningObjectivesProvider>
     </CourseInformationProvider>
