@@ -5,5 +5,4 @@ A course outline creator web app used to easily create course outlines for the U
 
 - React
 - Node JS
-- Django
 - Bulma
